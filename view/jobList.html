@@ -1,3 +1,7 @@
+<?php
+echo '<pre>'; print_r($_SESSION); echo '</pre>';
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,8 +10,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/myStyle.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/myStyle.css">
 
 </head>
 <body>
@@ -15,7 +19,7 @@
 <!--navbar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow sticky-top mb-3">
     <div class="container">
-        <a class="navbar-brand" href="../Index.html"> HJob Application</a>
+        <a class="navbar-brand" href="index.php"> HJob Application</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -23,14 +27,14 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="jobList.html">Application List</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="joblist.php">Application List</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="myCV.html">My CV</a>
+                    <a class="nav-link" href="mycv.php">My CV</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="progress.html">Apply Process</a>
+                    <a class="nav-link" href="applyprocess.php">Apply Process</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -62,7 +66,7 @@
             <div class="form-group col-md-2">
 
                 <select class="ss blue semi-square">
-                    <option selected>By date</option>
+                    <option selected>By Date</option>
                     <option>By salary</option>
                 </select>
             </div>
@@ -81,90 +85,29 @@
     </h3>
 
     <!--Application List:-->
+
+    <?php
+    for($i=0;$i<count($this->job_list);$i++)
+    {?>
     <div class="row mb-2">
         <div class="col-md-12">
-            <div class="card flex-md-row mb-4 box-shadow h-md-250 JB3 shadow-lg">
+            <div class="card flex-md-row mb-4 box-shadow h-md-250 shadow-lg JB4">
                 <div class="card-body d-flex flex-column align-items-start">
-                    <h3><strong class="d-inline-block mb-0 text-primary">PHP programmer</strong></h3>
+                    <h3><strong class="d-inline-block mb-0 text-primary"><?php echo $this->job_list[$i]['title']?></strong></h3>
                     <p class="mb-0">
                         <a class="text-dark" href="#">UK</a>
                     </p>
-                    <div class="mb-1 text-muted">Nov 12</div>
-                    <p class="card-text mb-auto">Job details below.</p>
-                    <a href="details.html">Continue reading</a>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row mb-2">
-        <div class="col-md-12">
-            <div class="card flex-md-row mb-4 box-shadow h-md-250 JB4 transparent-input shadow-lg">
-                <div class="card-body d-flex flex-column align-items-start">
-                    <h3><strong class="d-inline-block mb-0 text-primary">PHP programmer</strong></h3>
-                    <p class="mb-0">
-                        <a class="text-dark" href="#">UK</a>
-                    </p>
-                    <div class="mb-1 text-muted">Nov 12</div>
-                    <p class="card-text mb-auto">Job details below.</p>
+                    <div class="mb-1 text-muted"><?php echo date_format(date_create($this->job_list[$i]['post_date']),"M-d") ?></div>
+                    <p class="card-text mb-auto"><?php echo $this->job_list[$i]['brief_description']?></p>
                     <a href="#">Continue reading</a>
 
                 </div>
             </div>
         </div>
     </div>
+    <?php }?>
 
-    <div class="row mb-2">
-        <div class="col-md-12">
-            <div class="card flex-md-row mb-4 box-shadow h-md-250 JB3 transparent-input shadow-lg">
-                <div class="card-body d-flex flex-column align-items-start">
-                    <h3><strong class="d-inline-block mb-0 text-primary">PHP programmer</strong></h3>
-                    <p class="mb-0">
-                        <a class="text-dark" href="#">UK</a>
-                    </p>
-                    <div class="mb-1 text-muted">Nov 12</div>
-                    <p class="card-text mb-auto">Job details below.</p>
-                    <a href="#">Continue reading</a>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row mb-2">
-        <div class="col-md-12">
-            <div class="card flex-md-row mb-4 box-shadow h-md-250 JB4 transparent-input shadow-lg">
-                <div class="card-body d-flex flex-column align-items-start">
-                    <h3><strong class="d-inline-block mb-0 text-primary">PHP programmer</strong></h3>
-                    <p class="mb-0">
-                        <a class="text-dark" href="#">UK</a>
-                    </p>
-                    <div class="mb-1 text-muted">Nov 12</div>
-                    <p class="card-text mb-auto">Job details below.</p>
-                    <a href="#">Continue reading</a>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row mb-2">
-        <div class="col-md-12">
-            <div class="card flex-md-row mb-4 box-shadow h-md-250 JB3 transparent-input shadow-lg">
-                <div class="card-body d-flex flex-column align-items-start">
-                    <h3><strong class="d-inline-block mb-0 text-primary">PHP programmer</strong></h3>
-                    <p class="mb-0">
-                        <a class="text-dark" href="#">UK</a>
-                    </p>
-                    <div class="mb-1 text-muted">Nov 12</div>
-                    <p class="card-text mb-auto">Job details below.</p>
-                    <a href="#">Continue reading</a>
-
-                </div>
-            </div>
-        </div>
-    </div>
+ 
 
     <hr>
     <!-- Copyright -->

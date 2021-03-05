@@ -16,6 +16,5 @@ if($_POST){
 	}
 }
 $control->get_latest_jobs();
-$control->index();
-
-
+$control->joblist();
+?>

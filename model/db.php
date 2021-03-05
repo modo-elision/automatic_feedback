@@ -112,15 +112,15 @@ class dbconn extends Safe{
             return false;
         }
         if(!is_bool($execute)){
-            while($row = mysqli_fetch_array($execute)){
+            while($row = mysqli_fetch_assoc($execute)){
                 $return[]   = $row;
             }
         }
         return $return;
     }
 
-    public function Select($table, $condition = "", $sort = "", $order = " ASC ", $clause = " AND "){
-        $query = "SELECT * FROM ".$this->noHTMLnoQuotes($this->Value($table));
+    public function Select($table,$value, $condition = "", $sort = "", $order = " ASC ", $clause = " AND "){
+        $query = "SELECT ".$value." FROM ".$this->noHTMLnoQuotes($this->Value($table));
         if(!empty($condition)){
             $query .= $this->where($condition,$clause);
         }

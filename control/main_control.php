@@ -3,24 +3,28 @@ require_once(dirname(__FILE__).'\controller.php');
 class Index extends Controller {
     function __construct() {
 		parent::__construct();
-		
+		require_once 'model/index_Model.php';
+		$this->index_model=new Index_Model();
 	}
 	
 	function index() {
 		//require_once(dirname(__FILE__).'\controller.php');
-		require_once 'model/index_Model.php';
-		$this->index_model=new Index_Model();
-		$value=$this->index_model->get_all_login_records();
-		//$this->allrecords = $this->index_model->get_all_records();
-		require_once 'view/login.php';
-		//$this->view->render('/code/index');
+		//$this->login_records=$this->index_model->get_all_login_records();
+		require_once 'view/index.php';
 		
 	}
-
+	function joblist() {
+		//require_once(dirname(__FILE__).'\controller.php');
+		//$this->login_records=$this->index_model->get_all_login_records();
+		require_once 'view/joblist.html';
+		
+	}
+	function get_latest_jobs()
+	{
+	$this->job_list=$this->index_model->get_all_job_list();
+	}
 	function verify_login($value)
 	{
-		require_once 'model/index_Model.php';
-		$this->index_model=new Index_Model();
 		$value_login= $this->index_model->check_login_records($value);
 		if(empty($value_login)){
 			echo 'EMPTY<pre>'; print_r($value_login); echo '</pre>';

@@ -1,3 +1,7 @@
+<?php
+echo '<pre>'; print_r($_SESSION); echo '</pre>';
+//echo '<pre>'; print_r($this->job_list); echo '</pre>';
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -23,7 +27,7 @@
 <!--navbar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow sticky-top">
     <div class="container">
-        <a class="navbar-brand" href="Index.html"> HJob Application</a>
+        <a class="navbar-brand" href="index.php"> HJob Application</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -32,13 +36,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="../code/pages/jobList.html">Application List</a>
+                    <a class="nav-link" href="joblist.php">Application List</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../code/pages/myCV.html">My CV</a>
+                    <a class="nav-link" href="mycv.php">My CV</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../code/pages/progress.html">Apply Process</a>
+                    <a class="nav-link" href="applyprocess.php">Apply Process</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -56,7 +60,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Welcome to BestJob</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Welcome to HJob</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -64,19 +68,20 @@
             <div class="modal-body">
                 <div id="loginForm">
                     <p class="text-center display-4 font-weight-bold">Login</p>
-                    <form name="signInForm" onsubmit="return validateForm()" method="post">
+                    <form action="index.php" method="post" enctype="multipart/form-data" onsubmit="return confirm('Do you really want to submit the form?');
+                    >
                         <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="text" class="form-control" id="username" required
-                                   placeholder="username">
+                            <label for="email">Email-ID</label>
+                            <input type="email" class="form-control" id="email" name="email" required
+                                   placeholder="Email-ID">
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="text" class="form-control" id="password" required
+                            <input type="text" class="form-control" id="password" required name="password"
                                    placeholder="password">
                         </div>
                         <div class="row">
-                            <button type="submit" class="btn btn-primary w-75 mx-auto">Sign In</button>
+                            <button type="submit" value="submit_login" class="btn btn-primary w-75 mx-auto" name="submit">Sign In</button>
                         </div>
 
                     </form>
@@ -135,7 +140,7 @@
         </div>
 
         <!--search form-->
-        <form class="row mb-6">
+        <!--form class="row mb-6">
             <div class="col-md-8">
                 <input type="text" class="form-control inline" placeholder="I am looking for...">
             </div>
@@ -143,7 +148,7 @@
             <div class="col-md-2">
                 <input type="button" value="Search" class="form-control inline">
             </div>
-        </form>
+        </form-->
         <p></p>
     </div>
 
@@ -152,61 +157,26 @@
     </h3>
 
     <!--3 HappyTech HJob Application boxes-->
+    <?php
+    for($i=0;$i<count($this->job_list);$i++)
+    {?>
     <div class="row mb-2">
         <div class="col-md-12">
             <div class="card flex-md-row mb-4 box-shadow h-md-250 shadow-lg JB4">
                 <div class="card-body d-flex flex-column align-items-start">
-                    <h3><strong class="d-inline-block mb-0 text-primary">PHP programmer</strong></h3>
+                    <h3><strong class="d-inline-block mb-0 text-primary"><?php echo $this->job_list[$i]['title']?></strong></h3>
                     <p class="mb-0">
                         <a class="text-dark" href="#">UK</a>
                     </p>
-                    <div class="mb-1 text-muted">Nov 12</div>
-                    <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to
-                        additional content.</p>
+                    <div class="mb-1 text-muted"><?php echo date_format(date_create($this->job_list[$i]['post_date']),"M-d") ?></div>
+                    <p class="card-text mb-auto"><?php echo $this->job_list[$i]['brief_description']?></p>
                     <a href="#">Continue reading</a>
 
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="row mb-2">
-        <div class="col-md-12">
-            <div class="card flex-md-row mb-4 box-shadow h-md-250 shadow-lg JB3">
-                <div class="card-body d-flex flex-column align-items-start">
-                    <h3><strong class="d-inline-block mb-0 text-primary">PHP programmer</strong></h3>
-                    <p class="mb-0">
-                        <a class="text-dark" href="#">UK</a>
-                    </p>
-                    <div class="mb-1 text-muted">Nov 12</div>
-                    <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to
-                        additional content.</p>
-                    <a href="#">Continue reading</a>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row mb-2">
-        <div class="col-md-12">
-            <div class="card flex-md-row mb-4 box-shadow shadow-lg h-md-250 JB4">
-                <div class="card-body d-flex flex-column align-items-start">
-                    <h3><strong class="d-inline-block mb-0 text-primary">PHP programmer</strong></h3>
-                    <p class="mb-0">
-                        <a class="text-dark" href="#">UK</a>
-                    </p>
-                    <div class="mb-1 text-muted">Nov 12</div>
-                    <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to
-                        additional content.</p>
-                    <a href="#">Continue reading</a>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-
+    <?php }?>
     <hr>
     <!-- Copyright -->
 
