@@ -5,29 +5,48 @@ class Index extends Controller {
 		parent::__construct();
 		require_once 'model/index_Model.php';
 		$this->index_model=new Index_Model();
+		$this->login['error']['invalid']=0;
 	}
 	
 	function index() {
-		//require_once(dirname(__FILE__).'\controller.php');
-		//$this->login_records=$this->index_model->get_all_login_records();
-		require_once 'view/index.php';
-		
+		require_once 'view/index.html';
 	}
-	function joblist() {
-		//require_once(dirname(__FILE__).'\controller.php');
-		//$this->login_records=$this->index_model->get_all_login_records();
-		require_once 'view/joblist.html';
-		
+	function signin() {
+		require_once 'view/sign-in.html';
 	}
+	function application_list() {
+		require_once 'view/application-status.html';
+	}
+	function job_detail() {
+		require_once 'view/apply-job.html';
+	}
+
+	function get_job_details($id)
+	{
+		$this->job_details=$this->index_model->get_job_detail($id);
+	}
+
 	function get_latest_jobs()
 	{
-	$this->job_list=$this->index_model->get_all_job_list();
+		$this->job_list=$this->index_model->get_all_job_list();
+	}
+
+	function get_applied_jobs()
+	{
+		$this->user_id=$this->user_id();
+		$this->applied_job_list=$this->index_model->get_appled_job_list($this->user_id);
+		echo "<pre>";print_r($this->applied_job_list);echo "</pre>";
+	}
+	function clear_session()
+	{
+		$_SESSION['User_id']=NULL;
+		$_SESSION['type']=NULL;
 	}
 	function verify_login($value)
 	{
 		$value_login= $this->index_model->check_login_records($value);
 		if(empty($value_login)){
-			echo 'EMPTY<pre>'; print_r($value_login); echo '</pre>';
+			$this->login['error']['invalid']=1;
 		}
 		else{
 			echo '<pre>'; print_r($value_login); echo '</pre>';
@@ -35,30 +54,21 @@ class Index extends Controller {
 			{
 				$_SESSION['User_id']=$value_login[0]['user_id'];
 				$_SESSION['type']=$value_login[0]['type'];
+				$this->login['error']['invalid']=0;
 			}
 			else {
-
 				$_SESSION['User_id']=NULL;
 				$_SESSION['type']=NULL;
+				$this->login['error']['invalid']=1;
 			}
 		}
 	}
-	/*function edit_submit_index(){
-		
-		$action=$_POST['submit']; 
-		if ($action=='submit')
-		{
-			echo'$action';
-		$arg=$_POST['id'];
-		$data = array(
-		'id' =>null,
-		'name' =>$_POST['name'],
-		'email' =>$_POST['email'],
-		'contact' => $_POST['contact']
-		);
-		$this->model->submit_index($data);	
-		}
-		header('location: index');
-	}*/
+
+	function redirect($url, $permanent = false)
+	{
+	    header('Location: ' . $url, true, $permanent ? 301 : 302);
+	    exit();
+	}
+	
 }
 

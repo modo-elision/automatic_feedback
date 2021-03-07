@@ -6,7 +6,10 @@ class Controller {
 		//require_once 'model/db.php';
 		//$this->model=new dbconn();
 	}
-	
+	function user_id()
+	{
+		return $_SESSION["User_id"];
+	}
 	function index() {
 		
 	}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Happy tech jobs Application</title>
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/fontawesome.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <script src="./local-script.js"></script>
+   </head>
+   <body>
+      <?php require_once 'view/header.html';?>
+      <!-- section one start -->
+      <section class="position-relative">
+         <div class="container-fluid mp-sec-bg">
+            <div class="row">
+               <div class="col-12">
+                  <div class="section-two-bg">
+                     <div class="text-group py-5 text-center">
+                        <div class="h1">
+                           Job Application Status<span class="mp-text-secondary">.</span>
+                        </div>
+                   
+                        <div class="row">
+                           <div class="col-4 m-auto pt-3 pb-3">
+                              <div class="job-search-div">
+                                 <div class="form-group m-0">
+                                    <input type="Search" class="form-control searchInput" id="search_job" placeholder="Search Job" name="search_job">
+                                    <span><i class="fa fa-search" aria-hidden="true"></i></span>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- section one end -->
+      <section class="position-relative py-2 my-2">
+         <div class="container-fluid">
+            <div class="row py-3">
+              <?php
+              if(!empty($this->applied_job_list))
+                for($i=0;$i<count($this->applied_job_list);$i++)
+                {?>
+                  <div class="col-lg-4 col-sm-12">
+                  <div class="open-job-tile">
+                     <div class="op-job-title"><?php echo $this->applied_job_list[$i]['job_details']['title'] ?></div>
+                     <div class="op-job-companyName"><?php echo $this->applied_job_list[$i]['job_details']['company_name'] ?></div>
+                     <div class="op-job-details">
+                        <div class="op-job-expr pd-around"><span><i class="fa fa-briefcase" aria-hidden="true"></i></span> <?php echo $this->applied_job_list[$i]['job_details']['required_experience'] ?></div>
+                        <div class="op-job-salary pd-around"><span><i class="fa fa-usd" aria-hidden="true"></i></span> Not Disclosed</div>
+                        <div class="op-job-location pd-around"><span><i class="fa fa-map-marker" aria-hidden="true"></i></span> Bradford</div>
+                     </div>
+                     <div class="link-btn btn btn-link d-flex justify-content-end">Show Status</div>
+                    <!-- Application status section start here -->
+                    <div class="app-status-block mt-2 pt-2">
+                    <div class="h6">Application Status</div>
+                    <div class="app-status-list">
+                    <ul>
+                    <li><div>Applied - <span><?php echo date_format(date_create($this->applied_job_list[$i]['applyed_time']),"d M Y") ?></span></div></li>
+                    <li><div class="green">Application Sent - <span><?php echo date_format(date_create($this->applied_job_list[$i]['applyed_time']),"d M Y") ?></span></div></li>
+                    <li><div>Awaiting Recruiter Action - <span></span></div></li>
+                    </ul>
+                    </div>
+                    </div>
+                  <!-- Application status section ends here -->
+                  </div>
+               </div>
+               <?php } ?>
+            </div>
+         </div>
+      </section>
+      <!-- Footer start from here -->
+      <section>
+         <footer class="text-center">
+            <div class="footer_below">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-lg-12">
+                        <p> Copyright © Website 2021.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </footer>
+      </section>
+      <!-- Footer start from here -->
+   </body>
+</html>

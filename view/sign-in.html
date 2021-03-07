@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Happy tech jobs Application</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login-page.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="./local-script.js"></script>
+</head>
+
+<body>
+    <?php require_once 'view/header.html';?>
+    <!-- section one start -->
+    <section class="position-relative">
+    <div class="container-fluid login-container">
+            <div class="row">
+                <div class="col-4 mx-auto login-form-1 p-0">
+                    <form action="sign-in.php" method="post">
+                        <h3 class="mb-4">Welcome to Happy tech jobs</h3>
+                        <?php
+                                if(!empty($this->login))
+                                if($this->login['error']['invalid']==1){?>
+                                <span id="danger">Invalid user name or password</span>
+                            <?php    
+                            }
+                            ?>
+                        <div class="form-group">
+                        <label class="label-text m-0">User Name</label>
+                            <input type="text" class="form-control" name="email"placeholder="Please enter username *" value="" />
+                        </div>
+                        <div class="form-group">
+                        <label class="label-text m-0">Password</label>
+                            <input type="password" class="form-control" placeholder="Please enter password *"  name="password"value="" />
+                        </div>
+                        <div class="form-group pt-2 text-center">
+              <?php require_once 'view/header.html';?>              <input type="submit" class="btnSubmit"name="submit" value="Login" />
+                        </div>
+
+                        <div class="form-group">
+                            
+                            <a href="#" class="ForgetPwd small">Don't have an account?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- section one end -->
+</body>
+
+</html>

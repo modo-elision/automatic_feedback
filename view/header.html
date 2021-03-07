@@ -1,0 +1,35 @@
+<header class="px-5">
+         <nav class="navbar navbar-expand-lg py-3 mp-nav fixed-top">
+            <a class="navbar-brand mp-text-primary font-weight-bold" title="Happy tech jobs Application" href="index.php">
+            Happy tech jobs Application
+            </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navb">
+               <ul class="navbar-nav m-auto">
+                  <li class="nav-item mx-4">
+                     <a class="nav-link mp-text-primary" href="index.php">Jobs</a>
+                  </li>
+                  <li class="nav-item mx-4">
+                     <a class="nav-link mp-text-primary" href="application-status.php">Application Status</a>
+                  </li>
+                  <li class="nav-item mx-4">
+                     <a class="nav-link mp-text-primary" href="my-profile.php">My Profile</a>
+                  </li>
+                  <?php 
+                     if(!empty($_SESSION))
+                        if($_SESSION["User_id"]==NULL){?>
+                  <li class="nav-item mx-4">
+                     <a class="nav-link mp-text-primary" href="sign-in.php">Sign In</a>
+                  </li>
+                  <?php }
+                  else if($_SESSION["User_id"]!=NULL){?>
+                  <li class="nav-item mx-4">
+                     <a class="nav-link mp-text-primary" href="sign-out.php">Sign OUT</a>
+                  </li>
+                  <?php }?>
+               </ul>
+            </div>
+         </nav>
+      </header>
