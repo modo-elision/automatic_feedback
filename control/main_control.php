@@ -8,24 +8,37 @@ class Index extends Controller {
 		$this->login['error']['invalid']=0;
 	}
 	
-	function index() {
-		require_once 'view/index.html';
+	
+	function apply_job($job_id)
+	{
+		$this->apply_status=$this->index_model->get_apply_status($job_id);
+		if(empty($this->apply_status))
+		{
+			$this->index_model->apply_job($job_id);
+		}
 	}
-	function signin() {
-		require_once 'view/sign-in.html';
-	}
-	function application_list() {
-		require_once 'view/application-status.html';
-	}
-	function job_detail() {
-		require_once 'view/apply-job.html';
-	}
-
 	function get_job_details($id)
 	{
 		$this->job_details=$this->index_model->get_job_detail($id);
+		//echo "<pre>"; print_r($this->job_details); echo "</pre>";
+		echo "<pre>"; print_r($_SESSION); echo "</pre>";
+		$this->apply_status=$this->index_model->get_apply_status($id);
+		if(!empty($this->apply_status))
+		{
+			//echo "<pre>"; print_r($this->apply_status); echo "</pre>";
+		}
 	}
 
+	function get_app_details($id)
+	{
+		//$this->job_details=$this->index_model->get_job_detail($id);
+		//echo "<pre>"; print_r($_SESSION); echo "</pre>";
+		$this->app_details=$this->index_model->get_app_status($id);
+		if(!empty($this->app_details))
+		{
+			echo "<pre>"; print_r($this->app_details); echo "</pre>";
+		}
+	}
 	function get_latest_jobs()
 	{
 		$this->job_list=$this->index_model->get_all_job_list();
@@ -35,7 +48,15 @@ class Index extends Controller {
 	{
 		$this->user_id=$this->user_id();
 		$this->applied_job_list=$this->index_model->get_appled_job_list($this->user_id);
-		echo "<pre>";print_r($this->applied_job_list);echo "</pre>";
+		//echo "<pre>";print_r($this->applied_job_list);echo "</pre>";
+	}
+	function get_all_applied_jobs()
+	{
+		$user_type=$this->user_type();
+		if($user_type=="admin"){
+			$this->applied_job_list=$this->index_model->get_all_appled_job_list();
+		}
+		//echo "<pre>";print_r($this->applied_job_list);echo "</pre>";
 	}
 	function clear_session()
 	{

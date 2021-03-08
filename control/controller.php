@@ -10,7 +10,26 @@ class Controller {
 	{
 		return $_SESSION["User_id"];
 	}
+	function user_type()
+	{
+		return $_SESSION["type"];
+	}
 	function index() {
-		
+		require_once 'view/index.html';
+	}
+	function signin() {
+		require_once 'view/sign-in.html';
+	}
+	function application_list() {
+		require_once 'view/application-status.html';
+	}
+	function application_list_admin() {
+		require_once 'view/applications.html';
+	}
+	function job_detail() {
+		require_once 'view/apply-job.html';
+	}
+	function app_detail() {
+		require_once 'view/application.html';
 	}
 }

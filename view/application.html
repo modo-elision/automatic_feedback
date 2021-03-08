@@ -17,12 +17,11 @@
    <body>
       <?php require_once 'view/header.html';?>
 
-      <?php if(empty($this->apply_status)) 
+      <?php /*if(empty($this->apply_status)) 
                {$btn_value="Apply"; }
             else 
-            {$btn_value="Applied_Already";}
+            {$btn_value="Applied_Already";}*/
             ?>
-            <script type="text/javascript">var btn_value="<?php  echo $btn_value;?>";</script>
       <!-- section one start -->
       <section class="position-relative">
          <div class="container-fluid mp-sec-bg">
@@ -45,38 +44,27 @@
             <div class="row py-3">
                <div class="col-lg-8 col-sm-12">
                   <div class="apply-job-tile position-relative">
-                     <div class="op-job-expr pd-around" hidden="true" id="jod_id" value="<?php echo $this->job_details[0]['job_id'] ;?>"></div>
-                     <div class="op-job-title"><?php echo $this->job_details[0]['title'] ?></div>
-                     <div class="op-job-companyName"><?php echo $this->job_details[0]['company_name']; ?></div>
+                     <div class="op-job-expr pd-around" hidden="true" id="app_id" ></div>
+                     <div class="op-job-title"> Applicant Name :<?php echo $this->app_details[0]['user_details']['full_name'] ?></div>
+                     <div class="op-job-title">Email-Id : <?php echo $this->app_details[0]['user_details']['email_id'] ?></div>
+                     <div class="op-job-title">Job Name: <?php echo $this->app_details[0]['job_details']['title'] ?></div>
+                     <div class="op-job-companyName"><?php echo $this->app_details[0]['job_details']['company_name']; ?></div>
                      <div class="op-job-details">
-                        <div class="op-job-expr pd-around"><span><i class="fa fa-briefcase" aria-hidden="true"></i></span> <?php echo $this->job_details[0]['required_experience'] ;?></div>
+                        <div class="op-job-expr pd-around"><span><i class="fa fa-briefcase" aria-hidden="true"></i></span> <?php echo $this->app_details[0]['job_details']['required_experience'] ;?></div>
                         <div class="op-job-salary pd-around"><span><i class="fa fa-usd" aria-hidden="true"></i></span> Not Disclosed</div>
                         <div class="op-job-location pd-around"><span><i class="fa fa-map-marker" aria-hidden="true"></i></span> Bradford</div>
                      </div>
-                     <div class="op-job-tech">
-                        <div class="pr-2"><i class="fa fa-pencil" aria-hidden="true"></i></div>
-                        <div class="op-job-technologies"><?php echo $this->job_details[0]['post_comments'] ?></div>
-                     </div>
+                     
                      <div class="op-job-tech">
                         <div class="pr-2"><i class="fa fa-file-text" aria-hidden="true"></i></div>
-                        <div class="op-job-tech-desc"><?php echo $this->job_details[0]['brief_description'] ?></div>
-                     </div>
-                     <div class="op-job-tech">
-                        <div class="op-job-tech-desc">
-                           <ul class="px-3 m-0">
-                              <?php echo $this->job_details[0]['skilles_required'] ?>
-                           </ul>
-                        </div>
+                        <div class="op-job-tech-desc"><?php echo $this->app_details[0]['job_details']['brief_description'] ?></div>
                      </div>
                      <div class="apply-job-btn-block my-3">
-                        <button class="btn btn-primary" id="applyBtn" onclick=apply_job(<?php echo $_GET['job_id'] ?>)><?php  echo $btn_value;?></button>
-                           <div class="op-job-tech">
-                        <?php if(!empty($this->apply_status)){ ?>
-                           <div class="pr-2"><i class="fa fa-pencil" aria-hidden="true"></i></div>
-                           <div class="op-job-technologies">
-                              <?php echo date_format(date_create($this->apply_status[0]['applyed_time']),"d M Y") ;?>
-                           </div>
-                           <?php }?>
+                        <form action="responce.php" method="post">
+                           <button class="btn btn-primary" id="respnceBtn">
+                            Submit 
+                           </button>
+                     </form>
                      </div>
                      </div>
                                        <!--- alert notification after successfull job apply-->
@@ -115,6 +103,6 @@
          </footer>
       </section>
       <!-- Footer start from here -->
-      <?php require_once 'view/footer_js.html';?>
+      <?php //require_once 'view/footer_js.html';?>
    </body>
 </html>

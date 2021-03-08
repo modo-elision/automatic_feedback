@@ -1,0 +1,50 @@
+<script>
+  function get_status() {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("txtHint").innerHTML = this.responseText;
+        }
+      };
+      xmlhttp.open("GET", "ajax.php?j_i=" + str, true);
+      xmlhttp.send();
+  }
+  function get_search() {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("txtHint").innerHTML = this.responseText;
+        }
+      };
+      xmlhttp.open("GET", "ajax.php?j_s=" + str, true);
+      xmlhttp.send();
+  }
+  function apply_job(str) {
+    //alert("Applied_Already");
+    if(btn_value==="Applied_Already"){
+      alert("Applied_Already");
+      document.getElementById("Warning").style.visibility = "visible";
+    }
+    else{
+      if (window.confirm('Confirm Apply'))
+      {
+      var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            if(this.responseText=="1"){
+          document.getElementById("applyBtn").innerHTML = "Applied";
+          document.getElementById("Success").style.visibility = "visible";}
+          if(this.responseText=="2"){
+            window.location = "sign-in.php";
+          }
+            if(this.responseText=="0"){
+            document.getElementById("applyBtn").innerHTML = "error";
+          document.getElementById("Danger").style.visibility = "visible";}
+          }
+        };
+        xmlhttp.open("GET", "ajax.php?a_j=" + str, true);
+        xmlhttp.send();
+      }
+    }
+  }
+</script>
