@@ -20,6 +20,9 @@ class Controller {
 	function signin() {
 		require_once 'view/sign-in.html';
 	}
+	function signup() {
+		require_once 'view/sign-up.html';
+	}
 	function application_list() {
 		require_once 'view/application-status.html';
 	}

@@ -59,9 +59,24 @@
                         <div class="pr-2"><i class="fa fa-file-text" aria-hidden="true"></i></div>
                         <div class="op-job-tech-desc"><?php echo $this->app_details[0]['job_details']['brief_description'] ?></div>
                      </div>
+                  </div>
                      <div class="apply-job-btn-block my-3">
+                        <label class="label-text m-0">View CV</label>
+                            <a href="view-cv.php?u_id=1"><buttonbutton class="btn btn-primary" id="view">CV</button></a>
                         <form action="responce.php" method="post">
-                           <button class="btn btn-primary" id="respnceBtn">
+                           <div class="form-group">
+                           <label class="label-text m-0">Select Template:</label>
+                           <select name="Template_select">
+                              <option value="wait">Waiting for approvel</option>
+                              <option value="reject">Reject Candidate</option>
+                              <option value="next_round">Proceed For Next Round</option>
+                              <option value="accept">Accept Candidate</option>   
+                           </select>
+                        </div> 
+                        <input type="text" class="form-control" placeholder="free comment"  name="app_id"value="<?php echo $this->app_details[0]['application_id']?>" hidden="True"/>
+                        <label class="label-text m-0">Free comment</label>
+                            <input type="text" class="form-control" placeholder="free comment"  name="free_comment"value="" />
+                        </div>                           <button class="btn btn-primary" id="responceBtn" onclick="alert('Confirm Submit')";>
                             Submit 
                            </button>
                      </form>

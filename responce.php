@@ -1,6 +1,14 @@
 <?php
 require_once 'control/main_control.php';
 $control=new Index();
+$address=$_SERVER['PHP_SELF'];
+if(!empty($_POST)){
+	if(!empty($_POST['Template_select'])){
+		$data=$_POST;
+		$_GET['app_id']=$_POST['app_id'];
+		$control->update_app($data);
+	}
+}
 if(!empty($_SESSION)){
 	if($_SESSION['type']=='admin'){
 	if(!empty($_GET)){
@@ -12,4 +20,5 @@ if(!empty($_SESSION)){
 	}
 	}	
 }
+
 $control->redirect("index.php");

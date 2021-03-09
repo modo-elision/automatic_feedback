@@ -63,14 +63,35 @@ class Index extends Controller {
 		$_SESSION['User_id']=NULL;
 		$_SESSION['type']=NULL;
 	}
+	function verify_email($value)
+	{
+		$value_login= $this->index_model->check_login_records($value);
+		if(empty($value_login)){
+			return "no-email";
+		}
+		else{
+			return "email-exist";
+		}
+	}
+	function add_user_acc($value){
+		$responce=$this->verify_email($value);
+		if($responce=="no-email"){
+
+			$this->index_model->add_acc($value);
+			$this->verify_login($value);
+			return "done";
+		}
+		return "error";
+		
+	}
 	function verify_login($value)
 	{
 		$value_login= $this->index_model->check_login_records($value);
 		if(empty($value_login)){
-			$this->login['error']['invalid']=1;
+			$this->login['error']['invalid']=2;
 		}
 		else{
-			echo '<pre>'; print_r($value_login); echo '</pre>';
+			//echo '<pre>'; print_r($value_login); echo '</pre>';
 			if($value_login[0]['password']==$value['password'])
 			{
 				$_SESSION['User_id']=$value_login[0]['user_id'];
@@ -84,7 +105,16 @@ class Index extends Controller {
 			}
 		}
 	}
-
+	function update_app($data)
+	{
+		$id['application_id']=$data['app_id'];
+		$data_update = array(
+     		'responce' =>$data['Template_select'],
+     		'comments' =>$data['free_comment'],
+     		'responce_time' =>date("Y-m-d H:i:s")
+     	);
+		$this->app_details=$this->index_model->update_app_status($id,$data_update);
+	}
 	function redirect($url, $permanent = false)
 	{
 	    header('Location: ' . $url, true, $permanent ? 301 : 302);
