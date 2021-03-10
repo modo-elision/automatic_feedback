@@ -7,6 +7,7 @@ if(!empty($_POST)){
 		$data=$_POST;
 		$_GET['app_id']=$_POST['app_id'];
 		$control->update_app($data);
+		//$control->redirect("index.php");
 	}
 }
 if(!empty($_SESSION)){

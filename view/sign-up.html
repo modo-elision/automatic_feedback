@@ -42,19 +42,19 @@
                             ?>
                         <div class="form-group">
                         <label class="label-text m-0">User Name</label>
-                            <input type="text" class="form-control" name="name"placeholder="Please enter username *" value="" />
+                            <input type="text" class="form-control" name="name"placeholder="Please enter username *" required value="" />
                         </div>
                         <div class="form-group">
                         <label class="label-text m-0">Email Id</label>
-                            <input type="text" class="form-control" name="email"placeholder="Please enter email *" value="" />
+                            <input type="text" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email"placeholder="Please enter email *" required value="" />
                         </div>
                         <div class="form-group">
                         <label class="label-text m-0">Password</label>
-                            <input type="password" class="form-control" placeholder="Please enter password *"  name="password"value="" />
+                            <input type="password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Please enter password *" required name="password"value="" />
                         </div>
                         <div class="form-group">
                         <label class="label-text m-0">Confirm Password</label>
-                            <input type="password" class="form-control" placeholder="confirm password *"  name="c_password"value="" />
+                            <input type="password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"placeholder="confirm password *" required name="c_password"value="" />
                         </div>
                         <div class="form-group pt-2 text-center">
                            <!input type="submit" class="btnSubmit"name="submit" value="Signup" />

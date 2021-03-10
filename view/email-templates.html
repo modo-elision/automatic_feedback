@@ -11,21 +11,22 @@
 </head>
 
 <body align="center" style="font-family: 'Ubuntu', sans-serif;">
-
+<?php if($template=="reject"){ ?>
   <table width='700' border='0' cellspacing='0' cellpadding='0' align="center">
- 		<tr>
+    <tr>
      <td colspan="2" bgcolor="#eb6540" style="display: flex;justify-content: space-between;align-items: center;">
     <p style="color:#fff;padding: 5px 10px;font-size: 20px;text-align: center;margin: 0;">Happy tech jobs Application</p>
-    <p style="color:#fff;padding: 5px 10px;font-size: 14px;text-align: center;margin: 0;">Username</p>
+    <p style="color:#fff;padding: 5px 10px;font-size: 14px;text-align: center;margin: 0;">-<?php echo $username;?></p>
   </td>
    </tr>
 
   <tr>
      <td colspan="2" bgcolor="#eff6ff" style="padding: 20px 10px 20px 10px;">
-    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Hi Sai Teja,</p>
-    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Thank you for your interest in <span style="font-weight:bold;">Salesforce</span>! We have reviewed your qualifications for the <span style="font-weight:bold;">Software Engineer</span> position. At this time, we have decided to move forward with other candidates.</p>
-    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Thank you again for considering Salesforce. We wish you the best of luck in your job search.</p>
-    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">The Salesforce Recruiting Team</p>
+    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Hi <?php echo $username;?>,</p>
+    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Thank you for your interest in <span style="font-weight:bold;"><?php echo $companyname;?></span>! We have reviewed your qualifications for the <span style="font-weight:bold;"><?php echo $jobname;?></span> position. At this time, we have decided to move forward with other candidates.</p>
+    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Thank you again for considering <?php echo $companyname;?>. We wish you the best of luck in your job search.</p>
+    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">The <?php echo $companyname;?> Recruiting Team</p>
+    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Comment:<?php echo $free_comment;?></p>
   </td>
    </tr>
 
@@ -39,55 +40,56 @@
     <tr><td><div id="tk-div"></div></td></tr>
     
   </table>
-
-  <br/>
-
-    <!--table width='700' border='0' cellspacing='0' cellpadding='0' align="center">
- 		<tr>
-     <td colspan="2" bgcolor="#eb6540" style="display: flex;justify-content: space-between;align-items: center;">
-    <p style="color:#fff;padding: 5px 10px;font-size: 20px;text-align: center;margin: 0;">Happy tech jobs Application</p>
-    <p style="color:#fff;padding: 5px 10px;font-size: 14px;text-align: center;margin: 0;">Username</p>
-  </td>
-   </tr>
-
-  <tr>
-     <td colspan="2" bgcolor="#eff6ff" style="padding: 20px 10px 20px 10px;">
-    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Hi Sai Teja,</p>
-    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Hooray! You have officially applied for the <span style="font-weight:bold;">Software Engineer</span> opening at <span style="font-weight:bold;">Salesforce</span>. Thank you for letting us know you’re interested in discovering new opportunities with us.</p>
-    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Good news – your information is now in the cloud. A member of our recruiting team will personally review your application. If you’re a potential match for one of our open positions, we’ll be in touch. If we don’t have the right role for you now, don’t worry, we’ll keep your information on file for future opportunities.</p>
-        <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Thanks again for considering <span>Salesforce</span> and have a great week!</p>
-    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">The <span>Salesforce</span> Recruiting Team</p>
-  </td>
-   </tr>
-
-    <tr>
-     <td colspan="2" bgcolor="#eb6540">
-    <p style="color:#fff;padding: 5px;font-size: 20px;text-align: center;margin: 0;">Stay connected for better job search with Happy tech jobs</p>
-    <p style="color:#fff;padding: 10px 0 0 0;font-size: 14px;text-align: center;margin: 0;">Happy tech jobs Application</p>
-    <p style="color:#fff;padding: 5px 0 20px 0px;font-size: 14px;text-align: center; margin: 0;">North london, 33162 • <a href="#" style="text-decoration: none;color: #fff;" id="optout">Unsubscribe</a></p>
-  </td>
-   </tr>
-    <tr><td><div id="tk-div"></div></td></tr>
-    
-  </table>
-
-    <br/>
+<?php }else if($template=="next_round"){ ?>
 
     <table width='700' border='0' cellspacing='0' cellpadding='0' align="center">
- 		<tr>
+    <tr>
      <td colspan="2" bgcolor="#eb6540" style="display: flex;justify-content: space-between;align-items: center;">
     <p style="color:#fff;padding: 5px 10px;font-size: 20px;text-align: center;margin: 0;">Happy tech jobs Application</p>
-    <p style="color:#fff;padding: 5px 10px;font-size: 14px;text-align: center;margin: 0;">Username</p>
+    <p style="color:#fff;padding: 5px 10px;font-size: 14px;text-align: center;margin: 0;">-<?php echo $username;?></p>
   </td>
    </tr>
 
   <tr>
      <td colspan="2" bgcolor="#eff6ff" style="padding: 20px 10px 20px 10px;">
-    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Hi Sai Teja,</p>
-    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Congratulations! You have been selected for the position of <span style="font-weight:bold;">Software Engineer</span> at <span style="font-weight:bold;">Salesforce</span> </p>
-    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Thank you for your cooperation through the recruitment process. We were glad to see your interest in the role and in our organization, and will be happy to welcome you to the <span style="font-weight:bold;">Salesforce</span> family!</p>
-        <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Thanks again for considering <span>Salesforce</span> and have a great week!</p>
-    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">The <span>Salesforce</span> Recruiting Team</p>
+    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Hi <?php echo $username;?>,</p>
+    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Hooray! You have officially applied for the <span style="font-weight:bold;"><?php echo $jobname;?></span> opening at <span style="font-weight:bold;"><?php echo $companyname;?></span>. Thank you for letting us know you’re interested in discovering new opportunities with us.</p>
+    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Good news – your information is now in the cloud. A member of our recruiting team will personally review your application. If you’re a potential match for one of our open positions, we’ll be in touch. If we don’t have the right role for you now, don’t worry, we’ll keep your information on file for future opportunities.</p>
+        <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Thanks again for considering <span><?php echo $companyname;?></span> and have a great week!</p>
+    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">The <span><?php echo $companyname;?></span> Recruiting Team</p>
+    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Comment:<?php echo $free_comment;?></p>
+  </td>
+   </tr>
+
+    <tr>
+     <td colspan="2" bgcolor="#eb6540">
+    <p style="color:#fff;padding: 5px;font-size: 20px;text-align: center;margin: 0;">Stay connected for better job search with Happy tech jobs</p>
+    <p style="color:#fff;padding: 10px 0 0 0;font-size: 14px;text-align: center;margin: 0;">Happy tech jobs Application</p>
+    <p style="color:#fff;padding: 5px 0 20px 0px;font-size: 14px;text-align: center; margin: 0;">North london, 33162 • <a href="#" style="text-decoration: none;color: #fff;" id="optout">Unsubscribe</a></p>
+  </td>
+   </tr>
+    <tr><td><div id="tk-div"></div></td></tr>
+    
+  </table>
+<?php }else if($template=="accept"){ ?>
+    
+
+    <table width='700' border='0' cellspacing='0' cellpadding='0' align="center">
+    <tr>
+     <td colspan="2" bgcolor="#eb6540" style="display: flex;justify-content: space-between;align-items: center;">
+    <p style="color:#fff;padding: 5px 10px;font-size: 20px;text-align: center;margin: 0;">Happy tech jobs Application</p>
+    <p style="color:#fff;padding: 5px 10px;font-size: 14px;text-align: center;margin: 0;">-<?php echo $username;?></p>
+  </td>
+   </tr>
+
+  <tr>
+     <td colspan="2" bgcolor="#eff6ff" style="padding: 20px 10px 20px 10px;">
+    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Hi <?php echo $username;?>,</p>
+    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Congratulations! You have been selected for the position of <span style="font-weight:bold;"><?php echo $jobname;?></span> at <span style="font-weight:bold;"><?php echo $companyname;?></span> </p>
+    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Thank you for your cooperation through the recruitment process. We were glad to see your interest in the role and in our organization, and will be happy to welcome you to the <span style="font-weight:bold;"><?php echo $companyname;?></span> family!</p>
+        <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Thanks again for considering <span><?php echo $companyname;?></span> and have a great week!</p>
+    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">The <span><?php echo $companyname;?></span> Recruiting Team</p>
+    <p style="color:#000;padding: 10px 10px;font-size: 14px;text-align: left;margin: 0;">Comment:<?php echo $free_comment;?></p>
   </td>
    </tr>
 
@@ -101,7 +103,9 @@
     <tr><td><div id="tk-div"></div></td></tr>
     
   </table-->
+<?php }
+//else {echo "wait";}
 
+?>
 </body>
 </html>
-
