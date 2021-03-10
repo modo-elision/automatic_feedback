@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2021 at 08:52 AM
+-- Generation Time: Mar 06, 2021 at 05:32 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.27
 
@@ -44,24 +44,12 @@ CREATE TABLE `address` (
 CREATE TABLE `applications` (
   `application_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `job_id` int(11) NOT NULL,
-  `applyed_time` datetime NOT NULL,
-  `responce_time` datetime DEFAULT NULL,
+  `applyed_time` int(11) NOT NULL,
   `status` int(11) NOT NULL,
-  `responce` varchar(20) NOT NULL,
-  `cv_location` text NOT NULL,
-  `comments` text NOT NULL
+  `responce` int(11) NOT NULL,
+  `cv_location` int(11) NOT NULL,
+  `comments` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `applications`
---
-
-INSERT INTO `applications` (`application_id`, `user_id`, `job_id`, `applyed_time`, `responce_time`, `status`, `responce`, `cv_location`, `comments`) VALUES
-(1, 1, 1, '2021-03-04 08:28:53', '2021-03-09 19:14:09', 0, '0', '1', 'adasdasd'),
-(8, 1, 3, '2021-03-08 07:55:11', '2021-03-09 19:14:09', 0, '0', '0', 'adasdasd'),
-(9, 6, 2, '2021-03-08 09:43:32', '2021-03-10 08:22:48', 0, 'next_round', '0', 'test2'),
-(10, 6, 1, '2021-03-08 09:43:38', '2021-03-10 08:21:36', 0, 'reject', '0', 'test123');
 
 -- --------------------------------------------------------
 
@@ -118,14 +106,11 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`user_id`, `email_id`, `password`, `full_name`, `phone_number`, `created_on`, `last_login`, `type`, `verify_code`, `verify_flag`) VALUES
-(1, 'admin@gmail.com', 'Admin_123', 'test 1', 123456789, '2021-03-02 22:16:15', '2021-03-02 22:16:15', 'admin', 664382, 1),
+(1, 'testing@gmail.com', 'test123', 'test 1', 123456789, '2021-03-02 22:16:15', '2021-03-02 22:16:15', 'admin', 664382, 1),
 (2, 'skn124@student.aru.ac,uk', '1947626', '', 0, '2021-03-03 18:29:06', '2021-03-03 18:29:10', 'admin', 0, 1),
 (3, 'sm2436@student.aru.ac.uk', '1945469', '', 0, '2021-03-02 18:29:14', '2021-03-02 18:29:17', 'admin', 0, 1),
 (4, 'sv388@student.aru.ac.uk', '1950468', '', 0, '2021-03-03 18:30:19', '2021-03-03 18:30:22', 'admin', 0, 1),
-(5, 'nrs128@student.aru.ac.uk', '1939536', '', 0, '2021-03-03 18:30:27', '2021-03-03 18:30:32', 'admin', 0, 1),
-(6, 'student1@gmail.com', 'Student1', 'Student 1', 1234567, '2021-03-02 22:16:15', '2021-03-02 22:16:15', '', 0, 1),
-(7, 'student2@gmail.com', 'Student2', 'Student 2', 1234527, '2021-03-02 22:16:15', '2021-03-02 22:16:15', '', 0, 1),
-(10, 'student@bysignup.com', 'abcd', 'student3', 0, '2021-03-09 11:34:43', '0000-00-00 00:00:00', '', 0, 1);
+(5, 'nrs128@student.aru.ac.uk', '1939536', '', 0, '2021-03-03 18:30:27', '2021-03-03 18:30:32', 'admin', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -212,7 +197,7 @@ ALTER TABLE `address`
 -- AUTO_INCREMENT for table `applications`
 --
 ALTER TABLE `applications`
-  MODIFY `application_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `application_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `jobs`
@@ -224,7 +209,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `responce`
