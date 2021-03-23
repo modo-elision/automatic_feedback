@@ -19,6 +19,14 @@
       xmlhttp.open("GET", "ajax.php?j_s=" + str, true);
       xmlhttp.send();
   }
+  function ForgetPwd() {
+    document.getElementById("loginbutton").value = "Update";
+    document.getElementById("confirm_password").hidden = false;
+    document.getElementById("confirm_password").required = true;
+    document.getElementById("ForgetPwdanc").hidden = true;
+    
+  }
+
   function apply_job(str) {
     //alert("Applied_Already");
     if(btn_value==="Applied_Already"){

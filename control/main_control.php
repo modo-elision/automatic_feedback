@@ -136,7 +136,12 @@ class Index extends Controller {
 		//mail($to_email_address,$subject,$message,$header);
 		//$this->redirect("http://localhost/automatic_feedback/index.php");
 	}
-
+	function update_login($value)
+	{
+		$data
+		$value_login= $this->index_model->check_login_records($value);
+		$id['email_id']=$value['email_id'];
+	}
 	function update_app($data)
 	{
 		$id['application_id']=$data['app_id'];
