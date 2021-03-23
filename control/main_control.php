@@ -46,6 +46,7 @@ class Index extends Controller {
 	function get_latest_jobs()
 	{
 		$this->job_list=$this->index_model->get_all_job_list();
+		echo "<pre>";print_r($this->job_list);echo "</pre>";
 	}
 
 	function get_applied_jobs()
@@ -96,7 +97,7 @@ class Index extends Controller {
 		}
 		else{
 			//echo '<pre>'; print_r($value_login); echo '</pre>';
-			if($value_login[0]['password']==$value['password'])
+			if($value_login[0]['password']==md5($value['password']))
 			{
 				$_SESSION['User_id']=$value_login[0]['user_id'];
 				$_SESSION['type']=$value_login[0]['type'];
@@ -126,8 +127,8 @@ class Index extends Controller {
 		$template=$comp_app_data['0']['responce'];
 		$free_comment=$comp_app_data['0']['comments'];
 		$email_temp=$this->requireToVar('view/email-templates.html',$username,$companyname,$jobname,$template,$free_comment);
-		$to_email_address="snaroju545@gmail.com";//$comp_app_data['0']['user_details']['email']
-		$to_name="Shravan";//$comp_app_data['0']['user_details']['full_name']
+		$to_email_address="snaroju545@gmail.com";//$comp_app_data['0']['user_details']['email'];
+		$to_name="Shravan";//$comp_app_data['0']['user_details']['full_name'];
 		$message=$email_temp;
 		//$headers = 'From: noreply @ happytech . com';
 		//echo $email_temp;
