@@ -138,7 +138,7 @@ class Index extends Controller {
 	}
 	function update_login($value)
 	{
-		$data
+		//$data
 		$value_login= $this->index_model->check_login_records($value);
 		$id['email_id']=$value['email_id'];
 	}
