@@ -59,6 +59,10 @@ class Index_Model extends dbconn
 		}
 		return 0;
 	}
+	function update_password($id,$data)
+	{
+		$this->Update("login",$data,$id);
+	}
 	function update_app_status($id,$data)
 	{
 		$this->Update("applications",$data,$id);

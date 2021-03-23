@@ -140,7 +140,16 @@ class Index extends Controller {
 	{
 		//$data
 		$value_login= $this->index_model->check_login_records($value);
-		$id['email_id']=$value['email_id'];
+		//echo "<pre>";print_r($value_login);echo "</pre>";
+		if(!empty($value_login)){
+			if($value_login[0]['type']!='admin'){
+				$id['user_id']=$value_login[0]['user_id'];
+			$data_update = array(
+     		'password' =>md5($value['password'])
+     		 );
+			$this->upd_details=$this->index_model->update_password($id,$data_update);
+			}
+		}
 	}
 	function update_app($data)
 	{
