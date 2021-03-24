@@ -46,7 +46,7 @@ class Index extends Controller {
 	function get_latest_jobs()
 	{
 		$this->job_list=$this->index_model->get_all_job_list();
-		echo "<pre>";print_r($this->job_list);echo "</pre>";
+		//echo "<pre>";print_r($this->job_list);echo "</pre>";
 	}
 
 	function get_applied_jobs()
