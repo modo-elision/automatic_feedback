@@ -1,0 +1,24 @@
+ErrorDocument 404 /automatic_feedback/error.php
+ErrorDocument 400 /automatic_feedback/error.php
+ErrorDocument 500 /automatic_feedback/error.php
+
+
+<Files db.php>
+order allow,deny
+Deny from all
+</Files>
+<Files dbconfig.php>
+order allow,deny
+Deny from all
+</Files>
+<Files index_model.php>
+order allow,deny
+Deny from all
+</Files>
+
+<Files main_control.php>
+order allow,deny
+Deny from all
+</Files>
+
+

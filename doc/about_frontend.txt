@@ -1,4 +1,19 @@
+xammp 7.3.27
+{
+	PHP Version 7.3.27
+	Apache/2.4.46
+	json version 1.7.0
+	mysql 5.0.12-dev
+}
+
+PHPMailer current stable version march 2021
+
+main project at C:/xampp/htdocs/automatic_feedback/
+
+
+
 UI Modules used in this projects
+
 HTML5
 CSS 3
 BootStrap 4

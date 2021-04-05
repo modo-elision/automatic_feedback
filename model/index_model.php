@@ -15,9 +15,20 @@ class Index_Model extends dbconn
 		$where['email_id']=$data['email'];
 		return $this->Select('login','*',$where,"","","","");
 	}
+	public function get_user_cv_location()
+	{
+		$where['user_id']=$_SESSION['User_id'];
+		return $this->Select('cv_location','*',$where,"cv_id","DESC","","");
+	}
+	public function upload_cv_data_db($destination)
+	{
+		$rows['user_id']=$_SESSION['User_id'];
+		$rows['cv_location']=$destination;
+		return $this->Insert('cv_location',$rows);
+	}
 	public function get_all_job_list()
 	{
-		return $this->Select('jobs',"job_id,title,company_name,required_experience,pay,brief_description,post_date","","","","","");
+		return $this->Select('jobs',"job_id,title,company_name,required_experience,pay,post_date,brief_description,post_date","","","","","");
 	}
 
 	public function get_job_detail($id)
@@ -42,9 +53,11 @@ class Index_Model extends dbconn
 	{
 		if(!empty($_SESSION))
 		if($_SESSION['User_id']!=NULL){
+			$val=$this->get_user_cv_location();
 			$rows["user_id"]=$_SESSION['User_id'];
 			$rows["job_id"]=$job_id;
-			$rows["applyed_time"]=date("Y-m-d H:i:s");	
+			$rows["applyed_time"]=date("Y-m-d H:i:s");
+			$rows["cv_location"]=$val[0]['cv_location'];	
 			return $this->Insert('applications',$rows);
 		}
 		return 0;

@@ -8,9 +8,9 @@ print_r($_GET);
 if(!empty($_SESSION))
 print_r($_SESSION);
 echo "</pre>";
+phpinfo();
 
-
-
+/*
 $username="student1";
 $companyname="bmw";
 $jobname="automotive engg";
@@ -98,4 +98,6 @@ $message=$email_temp;
 //$from = "aru.happy.tech@gmail.com";//password:Aru@12345
 
 php_gmail_mailer($to_email_address,$to_name,$message);
+
+*/
 ?>

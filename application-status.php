@@ -1,8 +1,8 @@
 <?php
-echo "appplication status";
+//echo "appplication status";
 require_once 'control/main_control.php';
 $control=new Index();
-print_r($_SESSION);
+//print_r($_SESSION);
 if(!empty($_SESSION)){
 	if($_SESSION['User_id']==NULL)
 	{

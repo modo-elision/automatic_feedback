@@ -24,7 +24,7 @@ class Index extends Controller {
 	{
 		$this->job_details=$this->index_model->get_job_detail($id);
 		//echo "<pre>"; print_r($this->job_details); echo "</pre>";
-		echo "<pre>"; print_r($_SESSION); echo "</pre>";
+		//echo "<pre>"; print_r($_SESSION); echo "</pre>";
 		$this->apply_status=$this->index_model->get_apply_status($id);
 		if(!empty($this->apply_status))
 		{
@@ -46,7 +46,12 @@ class Index extends Controller {
 	function get_latest_jobs()
 	{
 		$this->job_list=$this->index_model->get_all_job_list();
-		//echo "<pre>";print_r($this->job_list);echo "</pre>";
+	}
+
+	function get_cv_details()
+	{
+		$this->cv=$this->index_model->get_user_cv_location();
+		//echo "<pre>";print_r($this->cv);echo "</pre>";
 	}
 
 	function get_applied_jobs()
@@ -88,6 +93,10 @@ class Index extends Controller {
 		}
 		return "error";
 		
+	}
+	function upload_cv_data($value)
+	{
+		$this->index_model->upload_cv_data_db($value);
 	}
 	function verify_login($value)
 	{

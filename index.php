@@ -1,12 +1,12 @@
 <?php
-echo "INDEX";
+//echo "INDEX";
 require_once 'control/main_control.php';
 $control=new Index();
 if($_POST){
 	$action=$_POST['submit']; 
 		if ($action=='submit_login')
 		{
-			echo'$action';
+			//echo'$action';
 		$data = array(
 		'id' =>null,
 		'email' =>$_POST['email'],

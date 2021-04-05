@@ -1,5 +1,5 @@
 <?php
-echo "<pre>sign-in";
+//echo "<pre>sign-in";
 
 require_once 'control/main_control.php';
 $control=new Index();
@@ -12,7 +12,7 @@ if($_POST){
 	$action=$_POST['submit']; 
 		if ($action=='Signup')
 		{
-			echo'$action';
+			//echo'$action';
 			if((!empty($_POST['password']))&(!empty($_POST['email']))&(!empty($_POST['name'])))
 			if($_POST['password']==$_POST['c_password']){
 				$data = array(
@@ -35,8 +35,8 @@ if($_POST){
 	}
 }
 
-print_r($error);
-echo "</pre>";
+//print_r($error);
+//echo "</pre>";
 $control->signup();
 
 ?>
