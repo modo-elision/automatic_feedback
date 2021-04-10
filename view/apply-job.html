@@ -43,7 +43,7 @@
       <section class="position-relative py-2 my-2">
          <div class="container-fluid">
             <div class="row py-3">
-               <div class="col-lg-8 col-sm-12">
+               <div class="col-lg-10 col-sm-12 m-auto">
                   <div class="apply-job-tile position-relative">
                      <div class="op-job-expr pd-around" hidden="true" id="jod_id" value="<?php echo $this->job_details[0]['job_id'] ;?>"></div>
                      <div class="op-job-title"><?php echo $this->job_details[0]['title'] ?></div>
@@ -69,13 +69,34 @@
                            </ul>
                         </div>
                      </div>
+
+                     <!-- Add upload funtionality in below UI code -->
+                     <div class="py-2 row">
+                        <div class="col-8 p-0">
+                           <div class="custom-file mt-3 mb-3">
+                          <input type="file" class="custom-file-input" id="customFile">
+                          <label class="custom-file-label" for="customFile">Custom file upload</label>
+                        </div>
+                        </div>
+                        <div class="col-4 d-flex align-items-center">
+                           <div class="w-100">
+                               <button type="submit" class="btn-primary form-control w-100 m-auto" value="submit_login" name="submit">Upload</button>
+                           </div>
+                          
+                        </div>
+                        
+                        
+                     </div>
+
+
                      <input type="file" id="file-input" accept="application/pdf" />
 <button id="upload-button">Upload File</button>
-                     <div class="apply-job-btn-block my-3">
-                        <?php if(!empty($this->cv)){ ?><button class="btn btn-primary" id="applyBtn" onclick=apply_job(<?php echo $_GET['job_id'] ?>)><?php  echo $btn_value;?></button>
+                     <div class="apply-job-btn-block my-3 d-flex align-items-center justify-content-center">
+                        <?php if(!empty($this->cv)){ ?>
+                        <button class="btn btn-primary mr-2 w-25" id="applyBtn" onclick=apply_job(<?php echo $_GET['job_id'] ?>)><?php  echo $btn_value;?></button>
                            <div class="op-job-tech">
                         <?php }if(!empty($this->apply_status)){ ?>
-                           <div class="pr-2"><i class="fa fa-pencil" aria-hidden="true"></i></div>
+                           
                            <div class="op-job-technologies">
                               <?php echo date_format(date_create($this->apply_status[0]['applyed_time']),"d M Y") ;?>
                            </div>
@@ -83,6 +104,7 @@
                      </div>
                      </div>
                                        <!--- alert notification after successfull job apply-->
+                                       <!-- display toggle class d-none for hide and d-block for show the div -->
                      <div class="alert alert-success alert-dismissible" style="visibility: hidden;" id="Success">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
                         <strong>Success!</strong> Your job is successfully applied. All the Very Best!....

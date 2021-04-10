@@ -28,7 +28,7 @@ echo '<pre>'; print_r($value); echo '</pre>';
     <div class="col-xs-6 form-group">        
       <div class="col-sm-offset-2 col-xs-6">
 
-      <button type="submit" class=".btn-info form-control" value="submit_login" name="submit">Submit</button>
+      <button type="submit" class="btn-info form-control" value="submit_login" name="submit">Submit</button>
       </div>
      </div>
     </form>

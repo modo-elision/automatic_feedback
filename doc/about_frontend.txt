@@ -11,7 +11,6 @@ PHPMailer current stable version march 2021
 main project at C:/xampp/htdocs/automatic_feedback/
 
 
-
 UI Modules used in this projects
 
 HTML5

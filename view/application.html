@@ -42,7 +42,7 @@
       <section class="position-relative py-2 my-2">
          <div class="container-fluid">
             <div class="row py-3">
-               <div class="col-lg-8 col-sm-12">
+               <div class="col-lg-10 col-sm-12 m-auto">
                   <div class="apply-job-tile position-relative">
                      <div class="op-job-expr pd-around" hidden="true" id="app_id" ></div>
                      <div class="op-job-title"> Applicant Name :<?php echo $this->app_details[0]['user_details']['full_name'] ?></div>
@@ -61,25 +61,33 @@
                         <div class="op-job-tech-desc"><?php echo $this->app_details[0]['job_details']['brief_description'] ?></div>
                      </div>
                   </div>
-                     <div class="apply-job-btn-block my-3">
-                        <label class="label-text m-0">View CV</label>
-                            <a href="<?php echo $this->app_details[0]['cv_location']?>"><buttonbutton class="btn btn-primary" id="view">CV</button></a>
+                     <div class="my-3 apply-job-tile position-relative">
+                        <div class="d-flex align-items-center">
+                           <label class="label-text my-3 col-2 p-0">View Details : </label>
+                            <a class="btn btn-outline-primary ml-2" href="<?php echo $this->app_details[0]['cv_location']?>">User Resume or CV</a>
+                        </div>
+                        
                         <form action="responce.php" method="post">
-                           <div class="form-group">
-                           <label class="label-text m-0">Select Template:</label>
-                           <select name="Template_select">
+                     
+                           <div class="form-group w-50 d-flex align-items-center">
+                           <label class="label-text my-3 col-4 p-0">Select Template:</label>
+                           <select name="Template_select" class="form-control">
                               <option value="wait">Waiting for approvel</option>
                               <option value="reject">Reject Candidate</option>
                               <option value="next_round">Proceed For Next Round</option>
                               <option value="accept">Accept Candidate</option>   
                            </select>
                         </div> 
-                        <input type="text" class="form-control" placeholder="free comment"  name="app_id"value="<?php echo $this->app_details[0]['application_id']?>" hidden="True"/>
-                        <label class="label-text m-0">Free comment</label>
-                            <input type="text" class="form-control" placeholder="free comment"  name="free_comment"value="" />
-                        </div>                           <button class="btn btn-primary" id="responceBtn" onclick="alert('Confirm Submit')";>
+                        <!--input type="text" class="form-control" placeholder="free comment"  name="app_id"value="<?php echo $this->app_details[0]['application_id']?>" hidden="True"/-->
+                        <div class="form-group">
+                            <label class="label-text m-0">Free comment : </label>
+                           <!--  <input type="text" class="form-control" placeholder="free comment"  name="free_comment"value="" /> -->
+                            <textarea class="form-control" style="resize: none;" placeholder="free comment" rows="5" id="comment" name="free_comment"value=""></textarea>
+                        </div>
+                       <button class="btn btn-primary" id="responceBtn" onclick="alert('Confirm Submit')";>
                             Submit 
                            </button>
+                        </div>                          
                      </form>
                      </div>
                      </div>
