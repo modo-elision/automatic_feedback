@@ -64,10 +64,10 @@
                      <div class="my-3 apply-job-tile position-relative">
                         <div class="d-flex align-items-center">
                            <label class="label-text my-3 col-2 p-0">View Details : </label>
-                            <a class="btn btn-outline-primary ml-2" href="<?php echo $this->app_details[0]['cv_location']?>">User Resume or CV</a>
+                            <a class="btn btn-outline-primary ml-2" href="<?php echo $this->app_details[0]['cv_location']?>" target="_blank" >User Resume or CV</a>
                         </div>
                         
-                        <form action="responce.php" method="post">
+                        <form action="responce.php" method="post" >
                      
                            <div class="form-group w-50 d-flex align-items-center">
                            <label class="label-text my-3 col-4 p-0">Select Template:</label>
@@ -78,7 +78,7 @@
                               <option value="accept">Accept Candidate</option>   
                            </select>
                         </div> 
-                        <!--input type="text" class="form-control" placeholder="free comment"  name="app_id"value="<?php echo $this->app_details[0]['application_id']?>" hidden="True"/-->
+                        <input type="text" class="form-control" placeholder="free comment"  name="app_id"value="<?php echo $this->app_details[0]['application_id']?>" hidden="True">
                         <div class="form-group">
                             <label class="label-text m-0">Free comment : </label>
                            <!--  <input type="text" class="form-control" placeholder="free comment"  name="free_comment"value="" /> -->

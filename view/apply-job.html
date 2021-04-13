@@ -72,28 +72,22 @@
 
                      <!-- Add upload funtionality in below UI code -->
                      <div class="py-2 row">
-                        <div class="col-8 p-0">
+                        <div class="col-6 p-0">
                            <div class="custom-file mt-3 mb-3">
-                          <input type="file" class="custom-file-input" id="customFile">
+                          <input type="file" class="custom-file-input" id="file-input" accept="application/pdf">
                           <label class="custom-file-label" for="customFile">Custom file upload</label>
                         </div>
                         </div>
-                        <div class="col-4 d-flex align-items-center">
+                        <div class="col-4 d-flex align-items-center align-items-right">
                            <div class="w-100">
-                               <button type="submit" class="btn-primary form-control w-100 m-auto" value="submit_login" name="submit">Upload</button>
+                               <button type="submit" class="btn-primary form-control w-100 m-auto" value="submit_login" name="submit" id="upload-button">Upload</button>
                            </div>
-                          
                         </div>
-                        
-                        
                      </div>
-
-
-                     <input type="file" id="file-input" accept="application/pdf" />
-<button id="upload-button">Upload File</button>
+                    
                      <div class="apply-job-btn-block my-3 d-flex align-items-center justify-content-center">
                         <?php if(!empty($this->cv)){ ?>
-                        <button class="btn btn-primary mr-2 w-25" id="applyBtn" onclick=apply_job(<?php echo $_GET['job_id'] ?>)><?php  echo $btn_value;?></button>
+                        <button class="btn btn-primary mr-2 w-25" id="applyBtn" onclick="apply_job(<?php echo $_GET['job_id'] ?>)"><?php  echo $btn_value;?></button>
                            <div class="op-job-tech">
                         <?php }if(!empty($this->apply_status)){ ?>
                            

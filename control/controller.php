@@ -57,7 +57,7 @@ class Controller {
 
 		try {
 		    // Server settings
-		    $mail->SMTPDebug = SMTP::DEBUG_SERVER; // for detailed debug output
+		    $mail->SMTPDebug = 0;//SMTP::DEBUG_SERVER; // for detailed debug output
 		    $mail->isSMTP();
 		    $mail->Host = 'smtp.gmail.com';
 		    $mail->SMTPAuth = true;
