@@ -84,7 +84,7 @@
                            </div>
                         </div>
                      </div>
-                    
+                    <span id="file_responce">Previous file : <?php if(!empty($this->cv))echo($this->cv[0]['cv_location']);  ?></span>
                      <div class="apply-job-btn-block my-3 d-flex align-items-center justify-content-center">
                         <?php if(!empty($this->cv)){ ?>
                         <button class="btn btn-primary mr-2 w-25" id="applyBtn" onclick="apply_job(<?php echo $_GET['job_id'] ?>)"><?php  echo $btn_value;?></button>

@@ -1,5 +1,8 @@
 <?php
-session_start();
+if(session_status()==PHP_SESSION_NONE) {
+	session_start();
+}
+error_reporting(E_ERROR);
 if(!empty($_GET)){
 	if($_GET['a_j']){
 		$job_id=$_GET['a_j'];

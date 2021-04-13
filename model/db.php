@@ -19,7 +19,7 @@ class dbconn extends Safe{
             $this->database     = "auto_feedback";
 
             $this->MySQLConnect();
-
+            date_default_timezone_set('Europe/London');
         }catch(Exception $e){
             echo "Your exception handling".$e;
         }
@@ -101,7 +101,7 @@ class dbconn extends Safe{
             return false;
         }
         $return             = array();
-        print_r($query);
+        //print_r($query);
         $execute = $this->Query($query);
         if($execute === false){
             $e = 'MySQL query error '.mysqli_error($this->connection);
