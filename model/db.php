@@ -101,7 +101,7 @@ class dbconn extends Safe{
             return false;
         }
         $return             = array();
-        //print_r($query);
+        print_r($query);
         $execute = $this->Query($query);
         if($execute === false){
             $e = 'MySQL query error '.mysqli_error($this->connection);
